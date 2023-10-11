@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/musemeld/static/css/main.fe4d39dc.css",
+    "main.js": "/musemeld/static/js/main.2c38563e.js",
+    "index.html": "/musemeld/index.html",
+    "main.fe4d39dc.css.map": "/musemeld/static/css/main.fe4d39dc.css.map",
+    "main.2c38563e.js.map": "/musemeld/static/js/main.2c38563e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fe4d39dc.css",
+    "static/js/main.2c38563e.js"
+  ]
+}
