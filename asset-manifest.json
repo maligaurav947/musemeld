@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/musemeld/static/css/main.fe4d39dc.css",
-    "main.js": "/musemeld/static/js/main.8a712dc5.js",
+    "main.js": "/musemeld/static/js/main.468015ee.js",
     "index.html": "/musemeld/index.html",
     "main.fe4d39dc.css.map": "/musemeld/static/css/main.fe4d39dc.css.map",
-    "main.8a712dc5.js.map": "/musemeld/static/js/main.8a712dc5.js.map"
+    "main.468015ee.js.map": "/musemeld/static/js/main.468015ee.js.map"
   },
   "entrypoints": [
     "static/css/main.fe4d39dc.css",
-    "static/js/main.8a712dc5.js"
+    "static/js/main.468015ee.js"
   ]
 }
