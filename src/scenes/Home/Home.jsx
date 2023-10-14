@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import Post from "./../../components/posts/Post";
 
-
 const Home = () => {
   return (
     <div className="flex items-start justify-evenly">

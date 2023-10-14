@@ -1,12 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link, useNavigate } from "react-router-dom";
-import {
-  signInWithEmailAndPassword,
-  signInWithPopup,
-  updateProfile,
-} from "firebase/auth";
-import { auth, googleProvider } from "../../../data/firebase";
-
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../data/firebase";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -26,8 +21,6 @@ const Signin = () => {
         toast.error(`${err}`);
       });
   };
-  //signin with Google
-
   return (
     <>
       <div className="py-8">

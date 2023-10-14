@@ -68,8 +68,8 @@ const SideNav = () => {
                 className="flex items-center gap-2 cursor-pointer"
                 key={data.id}
               >
-                <div className="">{data.icon}</div>
-                <div className="">{data.name}</div>
+                <div>{data.icon}</div>
+                <div>{data.name}</div>
               </div>
             </Link>
           ))}

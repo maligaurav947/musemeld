@@ -1,12 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineLink } from "react-icons/ai";
-import { auth, googleProvider } from "../../data/firebase";
+import { auth } from "../../data/firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Profile = () => {
+  //const id = auth.currentUser.uid;
   const nav = useNavigate();
   const logOut = async () => {
     try {
@@ -39,9 +40,9 @@ const Profile = () => {
                 </span>
               </div>
               <div className="btn-group flex gap-2 font-primary">
-                <div>
-                  <button className="btn bg-[#262626]">Edit Profile</button>
-                </div>
+                {/* <Link to={`/edit/${id}`}> */}
+                <button className="btn bg-[#262626]">Edit Profile</button>
+                {/* </Link> */}
                 <div>
                   <button className="btn bg-[#262626]">View Archive</button>
                 </div>

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { AiOutlineHeart, AiOutlineComment } from "react-icons/ai";
 import { db } from "../../data/firebase";
-import { getDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import Upload from "./Upload/Upload";
 import PostLayout from "./Layout/PostLayout";
-const w = 200;
-const h = 300;
+
 const Post = () => {
   const [post, setPosts] = useState([]);
   const postCollectionRef = collection(db, "post");

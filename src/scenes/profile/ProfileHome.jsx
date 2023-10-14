@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import SideNav from "../../components/SideNav/SideNav";
 import Profile from "./Profile";
 
