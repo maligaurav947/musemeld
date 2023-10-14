@@ -38,17 +38,17 @@ const links = [
     name: <span>Message</span>,
   },
   {
-    id: 5,
+    id: 6,
     icon: <AiOutlineNotification size={30} />,
     name: <span>Notification</span>,
   },
   {
-    id: 6,
+    id: 7,
     icon: <AiOutlinePlusCircle size={30} />,
     name: <span>Create</span>,
   },
   {
-    id: 7,
+    id: 8,
     icon: <AiOutlineUser size={30} />,
     name: <span>Profile</span>,
   },
@@ -65,8 +65,8 @@ const SideNav = () => {
           {links.map((data) => (
             <Link to={`/${data.name.props.children}`}>
               <div
-                key={data.id}
                 className="flex items-center gap-2 cursor-pointer"
+                key={data.id}
               >
                 <div className="">{data.icon}</div>
                 <div className="">{data.name}</div>

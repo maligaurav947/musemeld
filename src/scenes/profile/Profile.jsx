@@ -1,11 +1,12 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from "react";
 import { AiOutlineLink } from "react-icons/ai";
-import { auth } from "../../data/firebase";
+import { auth, googleProvider } from "../../data/firebase";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Profile = ({ name }) => {
+const Profile = () => {
   const nav = useNavigate();
   const logOut = async () => {
     try {
@@ -22,16 +23,20 @@ const Profile = ({ name }) => {
   return (
     <div className="flex flex-col gap-10 py-6">
       <div>
-        <div className="flex items-center gap-5">
+        <div className="lg:flex items-center gap-5">
           <img
-            src="https://w0.peakpx.com/wallpaper/107/46/HD-wallpaper-best-pose-for-profile-for-men-profile-pose-men-best-glasses.jpg"
+            src={auth?.currentUser?.photoURL}
             alt=""
             className="rounded-full h-[150px] w-[150px]"
           />
           <div className="grid gap-2">
             <div className="flex items-center gap-5 flex-wrap">
               <div className="text-center font-secondary text-2xl">
-                <span>{name}</span>
+                <span>
+                  {auth?.currentUser?.displayName
+                    ? auth?.currentUser?.displayName
+                    : "username"}
+                </span>
               </div>
               <div className="btn-group flex gap-2 font-primary">
                 <div>
@@ -64,7 +69,11 @@ const Profile = ({ name }) => {
             </div>
             <div className="flex items-center font-secondary text-xl flex-wrap">
               <div>
-                <span>{name}</span>
+                <span>
+                  {auth?.currentUser?.displayName
+                    ? auth?.currentUser?.displayName
+                    : "full name"}
+                </span>
               </div>
             </div>
             <a
@@ -73,7 +82,7 @@ const Profile = ({ name }) => {
               className="flex items-center font-secondary text-xl"
             >
               <AiOutlineLink size={20} />
-              maligaurav947.github.io/Portfolio/
+              {auth?.currentUser?.email}
             </a>
           </div>
         </div>

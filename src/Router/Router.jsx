@@ -26,13 +26,13 @@ const Router = () => {
         {!userActive ? (
           <Route path="/" element={<Signup />} />
         ) : (
-          <Route path="/" element={<ProfileHome name={userName} />} />
+          <Route path="/" element={<ProfileHome />} />
         )}{" "}
         <Route path="/Home" element={<Home />} />
         <Route path="/" element={<Signin />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/Profile" element={<ProfileHome name={userName} />} />
+        <Route path="/Profile" element={<ProfileHome />} />
       </Routes>
     </HashRouter>
   );
