@@ -8,7 +8,7 @@ const Home = () => {
       <div className="hidden lg:grid sticky left-0 top-0">
         <SideNav />
       </div>
-      <div className="grid justify-center w-[95%]">
+      <div className="grid justify-center w-full">
         <Post />
       </div>
     </div>

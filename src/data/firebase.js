@@ -13,14 +13,13 @@ import { getStorage } from "firebase/storage";
 // var measurementIdnew = `${process.env.REACT_MEASUREMENT_ID}`;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC05ihYm6GobnIdksEArwYtkFcvZ_ti7t4",
-  authDomain: "musemeld-404ca.firebaseapp.com",
-  databaseURL: "https://musemeld-404ca-default-rtdb.firebaseio.com",
-  projectId: "musemeld-404ca",
-  storageBucket: "musemeld-404ca.appspot.com",
-  messagingSenderId: "466945094887",
-  appId: "1:466945094887:web:d5d75e173cc7c6b2451e42",
-  measurementId: "G-L51ZJ1DXBM",
+  apiKey: "AIzaSyDhmFnI4DjlJOnsd72c1qbxv74plVL5eLM",
+  authDomain: "musemeld-f196f.firebaseapp.com",
+  projectId: "musemeld-f196f",
+  storageBucket: "musemeld-f196f.appspot.com",
+  messagingSenderId: "891545093990",
+  appId: "1:891545093990:web:94dab36f257b6091cb2aa7",
+  measurementId: "G-8CMQJ1L9ZL",
 };
 
 const app = initializeApp(firebaseConfig);

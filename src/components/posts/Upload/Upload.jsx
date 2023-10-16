@@ -8,17 +8,20 @@ const Upload = () => {
   const [newcaption, setNewCaption] = useState();
   const [imgUrl, setImgUrl] = useState([]);
   const postCollectionRef = collection(db, "post");
-
+  const likesCount = 1;
   const UploadFile = async () => {
     // if (!uploaded) return;
     // const filefolderRef = ref(storage, `postsImg/${uploaded.name}`);
     try {
-      //   await uploadBytes(filefolderRef, uploaded);
+      //await uploadBytes(filefolderRef, uploaded);
       addDoc(postCollectionRef, {
         profileImg: auth?.currentUser?.photoURL,
         username: auth?.currentUser?.displayName,
         caption: newcaption,
         imgUrl: imgUrl,
+        postlikes: likesCount,
+        userid: auth?.currentUser?.uid,
+
         //currentTime: new Date().getDate(),
       });
     } catch (error) {
@@ -27,13 +30,32 @@ const Upload = () => {
   };
   return (
     <>
-      <div class="my-3">
-        <textarea
-          className="peer block min-h-[5rem] max-h-[8rem] w-full rounded border-0 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
-          rows="3"
-          onChange={(e) => setNewCaption(e.target.value)}
-          placeholder="caption"
-        />
+      <div className="flex items-center gap-1">
+        {auth?.currentUser?.photoURL ? (
+          <>
+            <img
+              src={auth?.currentUser?.photoURL}
+              alt=""
+              className="rounded-full h-[50px] w-[50px]"
+            />
+          </>
+        ) : (
+          <>
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODsPtzBD0QWVBYneQcrYk2irZa4iwR-ySSw&usqp=CAU"
+              alt=""
+              className="rounded-full h-[50px] w-[50px]"
+            />
+          </>
+        )}
+        <div class="my-3 w-full">
+          <textarea
+            className="peer block min-h-[5rem] max-h-[8rem] w-full rounded border-0 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
+            rows="3"
+            onChange={(e) => setNewCaption(e.target.value)}
+            placeholder="caption here...."
+          />
+        </div>
       </div>
       {/* <div className="mb-3">
         <input
@@ -45,6 +67,7 @@ const Upload = () => {
         <input
           className="peer block min-h-[5rem] max-h-[8rem] w-full rounded border-0 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
           type="url"
+          placeholder="img url here...."
           onChange={(e) => setImgUrl(e.target.value)}
         />
       </div>
