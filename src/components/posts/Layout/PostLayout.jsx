@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { AiOutlineComment } from "react-icons/ai";
 import Action from "./Action/Action";
+import { Link } from "react-router-dom";
+import { auth } from "../../../data/firebase";
 
 const PostLayout = ({
   username,
@@ -10,43 +13,44 @@ const PostLayout = ({
   imgUrl,
   profileImg,
   postlikes,
+  userid,
 }) => {
   const w = 500;
   const h = 300;
   return (
     <>
       <div key={id} className="my-5">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 mb-2">
-            {profileImg ? (
-              <>
-                {" "}
-                <img
-                  src={profileImg}
-                  alt=""
-                  className="rounded-full h-[50px] w-[50px]"
-                />
-              </>
-            ) : (
-              <>
-                {" "}
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODsPtzBD0QWVBYneQcrYk2irZa4iwR-ySSw&usqp=CAU"
-                  alt=""
-                  className="rounded-full h-[50px] w-[50px]"
-                />
-              </>
-            )}
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex gap-2 items-center">
+            <div className="flex items-center justify-between">
+              {profileImg ? (
+                <>
+                  {" "}
+                  <img
+                    src={profileImg}
+                    alt=""
+                    className="rounded-full h-[50px] w-[50px]"
+                  />
+                </>
+              ) : (
+                <>
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODsPtzBD0QWVBYneQcrYk2irZa4iwR-ySSw&usqp=CAU"
+                    alt=""
+                    className="rounded-full h-[50px] w-[50px]"
+                  />
+                </>
+              )}
+            </div>
             <div className="grid">
               <span>@{username}</span>
               <span className="font-light">2 min ago</span>
             </div>
           </div>
           <div>
-            <Action id={id} />
+            <Action id={id} userid={userid} />
           </div>
         </div>
-
         <div className="">
           <img
             src={imgUrl}

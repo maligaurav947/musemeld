@@ -6,7 +6,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { auth, db } from "../../../../data/firebase";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
-const Action = ({ id }) => {
+const Action = ({ id, userid }) => {
   const [open, setOpen] = useState(false);
   const deletePost = async (id) => {
     try {
@@ -23,29 +23,35 @@ const Action = ({ id }) => {
       <BsThreeDots size={30} onClick={() => setOpen(!open)} />
       {open ? (
         <>
-          <div className="z-10 absolute left-[-145px] bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-              <Link to={`/edit/${id}`} className="cursor-pointer">
-                <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  <span className="flex items-center gap-2">
-                    <AiFillEdit />
-                    Edit Posts
-                  </span>
-                </a>
-              </Link>
-              <li className="cursor-pointer">
-                <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
-                  <span
-                    className="flex items-center gap-2"
-                    onClick={() => deletePost(id)}
-                  >
-                    <AiTwotoneDelete />
-                    Delete
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          {auth.currentUser.uid == userid ? (
+            <>
+              <div className="z-10 absolute left-[-145px] bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                  <Link to={`/editPost/${id}`} className="cursor-pointer">
+                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                      <span className="flex items-center gap-2">
+                        <AiFillEdit />
+                        Edit Posts
+                      </span>
+                    </a>
+                  </Link>
+                  <li className="cursor-pointer">
+                    <a className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">
+                      <span
+                        className="flex items-center gap-2"
+                        onClick={() => deletePost(id)}
+                      >
+                        <AiTwotoneDelete />
+                        Delete
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
         </>
       ) : (
         <></>

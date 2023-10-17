@@ -3,23 +3,22 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-// var apiKeynew = `${process.env.REACT_APP_KEY}`;
-// var authDomainnew = `${process.env.REACT_AUTH_DOMAIN}`;
-// var databaseURLnew = `${process.env.REACT_DATABASE_URL}`;
-// var projectIdnew = `${process.env.REACT_PROJECT_ID}`;
-// var storageBucketnew = `${process.env.REACT_STROAGE_BUCKET}`;
-// var messagingSenderIdnew = `${process.env.REACT_MESSAGING_SENDERID}`;
-// var appIdnew = `${process.env.REACT_APP_ID}`;
-// var measurementIdnew = `${process.env.REACT_MEASUREMENT_ID}`;
+const apiKeynew = process.env.REACT_APP_APP_KEY;
+const authDomainnew = process.env.REACT_APP_AUTH_DOMAIN;
+const projectIdnew = process.env.REACT_APP_PROJECT_ID;
+const storageBucketnew = process.env.REACT_APP_STROAGE_BUCKET;
+const messagingSenderIdnew = process.env.REACT_APP_MESSAGING_SENDERID;
+const appIdnew = process.env.REACT_APP_APP_ID;
+const measurementIdnew = process.env.REACT_APP_MEASUREMENT_ID;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhmFnI4DjlJOnsd72c1qbxv74plVL5eLM",
-  authDomain: "musemeld-f196f.firebaseapp.com",
-  projectId: "musemeld-f196f",
-  storageBucket: "musemeld-f196f.appspot.com",
-  messagingSenderId: "891545093990",
-  appId: "1:891545093990:web:94dab36f257b6091cb2aa7",
-  measurementId: "G-8CMQJ1L9ZL",
+  apiKey: apiKeynew,
+  authDomain: authDomainnew,
+  projectId: projectIdnew,
+  storageBucket: storageBucketnew,
+  messagingSenderId: messagingSenderIdnew,
+  appId: appIdnew,
+  measurementId: measurementIdnew,
 };
 
 const app = initializeApp(firebaseConfig);

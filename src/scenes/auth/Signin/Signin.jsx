@@ -15,7 +15,7 @@ const Signin = () => {
     }
     await signInWithEmailAndPassword(auth, email, pass)
       .then(() => {
-        nav("/Profile");
+        nav("/Home");
       })
       .catch((err) => {
         toast.error(`${err}`);

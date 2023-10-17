@@ -26,7 +26,7 @@ const Signup = () => {
             displayName: name,
           });
           toast.success("Welcome in");
-          nav("/Profile");
+          nav("/Home");
         }
       );
     } catch (error) {
@@ -37,7 +37,7 @@ const Signup = () => {
   const handleWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider).then(() => {
-        nav("/Profile");
+        nav("/Home");
       });
     } catch (error) {
       console.error(error);

@@ -5,54 +5,12 @@ import {
   AiOutlineCompass,
   AiOutlineFire,
   AiOutlineMessage,
-  AiOutlineNotification,
   AiOutlinePlusCircle,
   AiOutlineUser,
+  AiOutlineBell,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
-
-const links = [
-  {
-    id: 1,
-    icon: <AiOutlineHome size={30} />,
-    name: <span>Home</span>,
-  },
-  {
-    id: 2,
-    icon: <AiOutlineSearch size={30} />,
-    name: <span>Search</span>,
-  },
-  {
-    id: 3,
-    icon: <AiOutlineCompass size={30} />,
-    name: <span>Explore</span>,
-  },
-  {
-    id: 4,
-    icon: <AiOutlineFire size={30} />,
-    name: <span>Reel</span>,
-  },
-  {
-    id: 5,
-    icon: <AiOutlineMessage size={30} />,
-    name: <span>Message</span>,
-  },
-  {
-    id: 6,
-    icon: <AiOutlineNotification size={30} />,
-    name: <span>Notification</span>,
-  },
-  {
-    id: 7,
-    icon: <AiOutlinePlusCircle size={30} />,
-    name: <span>Create</span>,
-  },
-  {
-    id: 8,
-    icon: <AiOutlineUser size={30} />,
-    name: <span>Profile</span>,
-  },
-];
+import { auth } from "./../../data/firebase";
 
 const SideNav = () => {
   return (
@@ -62,17 +20,73 @@ const SideNav = () => {
           <span className="font-accent text-5xl">musemeld</span>
         </div>
         <div className="h-[60vh] grid font-primary ">
-          {links.map((data) => (
-            <Link to={`/${data.name.props.children}`}>
-              <div
-                className="flex items-center gap-2 cursor-pointer"
-                key={data.id}
-              >
-                <div>{data.icon}</div>
-                <div>{data.name}</div>
-              </div>
-            </Link>
-          ))}
+          <Link to="/Home" className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineHome size={30} />
+            </div>
+            <div>
+              <span>Home</span>
+            </div>
+          </Link>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineSearch size={30} />
+            </div>
+            <div>
+              <span>Search</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineCompass size={30} />
+            </div>
+            <div>
+              <span>Explore</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineFire size={30} />
+            </div>
+            <div>
+              <span>Reel</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineMessage size={30} />
+            </div>
+            <div>
+              <span>Message</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlineBell size={30} />
+            </div>
+            <div>
+              <span>Notification</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 cursor-pointer">
+            <div>
+              <AiOutlinePlusCircle size={30} />
+            </div>
+            <div>
+              <span>Create</span>
+            </div>
+          </div>
+          <Link
+            to={`/Profile/${auth?.currentUser?.uid}`}
+            className="flex items-center gap-2 cursor-pointer"
+          >
+            <div>
+              <AiOutlineUser size={30} />
+            </div>
+            <div>
+              <span>Profile</span>
+            </div>
+          </Link>
         </div>
         <div className="flex items-center gap-2 font-primary">
           <img

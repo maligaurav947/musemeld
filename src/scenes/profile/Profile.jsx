@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineLink } from "react-icons/ai";
 import { auth, db } from "../../data/firebase";
 import { signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -23,6 +23,10 @@ const Profile = () => {
       toast.error(error);
     }
   };
+
+  useEffect(() => {
+    window.document.title = `${auth?.currentUser?.displayName}`;
+  });
 
   const postCollectionRef = collection(db, "post");
   useEffect(() => {
@@ -48,7 +52,6 @@ const Profile = () => {
           <div className="lg:flex items-center gap-5">
             {auth?.currentUser?.photoURL ? (
               <>
-                {" "}
                 <img
                   src={auth?.currentUser?.photoURL}
                   alt=""
@@ -57,7 +60,6 @@ const Profile = () => {
               </>
             ) : (
               <>
-                {" "}
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRODsPtzBD0QWVBYneQcrYk2irZa4iwR-ySSw&usqp=CAU"
                   alt=""
@@ -69,15 +71,24 @@ const Profile = () => {
               <div className="flex items-center gap-5 flex-wrap">
                 <div className="text-center font-secondary text-2xl">
                   <span>
-                    {auth?.currentUser?.displayName
-                      ? auth?.currentUser?.displayName
-                      : "username"}
+                    {auth?.currentUser?.displayName ? (
+                      <>{auth?.currentUser?.displayName}</>
+                    ) : (
+                      <>
+                        <div role="status" className="max-w-sm animate-pulse">
+                          <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
+                        </div>
+                      </>
+                    )}
                   </span>
                 </div>
                 <div className="btn-group flex gap-2 font-primary">
-                  {/* <Link to={`/edit/${id}`}> */}
-                  <button className="btn bg-[#262626]">Edit Profile</button>
-                  {/* </Link> */}
+                  <Link
+                    to={`/editProfile/${auth?.currentUser?.uid}`}
+                    target="_blank"
+                  >
+                    <button className="btn bg-[#262626]">Edit Profile</button>
+                  </Link>
                   <div>
                     <button className="btn bg-[#262626]">View Archive</button>
                   </div>
@@ -90,16 +101,15 @@ const Profile = () => {
               </div>
               <div className="flex items-center gap-5 font-secondary text-xl flex-wrap">
                 <div className="flex gap-2">
-                  <span>252</span>
+                  <span>{0}</span>
                   <span>Posts</span>
                 </div>
                 <div className="flex gap-2">
-                  <span>652</span>
+                  <span>{0}</span>
                   <span>followers</span>
                 </div>
-
                 <div className="flex gap-2">
-                  <span>745</span>
+                  <span>{0}</span>
                   <span>following</span>
                 </div>
               </div>

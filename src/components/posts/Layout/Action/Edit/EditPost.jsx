@@ -9,6 +9,7 @@ const EditPost = () => {
   const { id } = useParams();
   const nav = useNavigate();
   // const [uploaded, setUploaded] = useState(null);
+  console.log(id);
   const [updatecaption, setUpdatecaption] = useState();
   const [updateimgurl, setUpdateimgurl] = useState();
 
