@@ -2,6 +2,8 @@
 
 MuseMeld is a social networking app built using React, Firebase, and a mix of Tailwind CSS and plain CSS for styling. This app enables users to connect, share, and interact in a vibrant social environment. It utilizes Firebase for real-time database, authentication, and storage, making it a robust and scalable solution.
 
+![Screenshot 1](https://github.com/maligaurav947/Portfolio/blob/9fcdea8c6beb374c60300b65255fdc2344ae854e/src/Components/assets/img/musemeld.png?raw=true)
+
 ## Features
 
 - User authentication with Firebase
