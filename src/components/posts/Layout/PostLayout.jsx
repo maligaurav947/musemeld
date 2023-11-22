@@ -1,10 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
-import { AiOutlineHeart } from "react-icons/ai";
-import { AiOutlineComment } from "react-icons/ai";
+import React, { useState } from "react";
+import {
+  AiOutlineComment,
+  AiOutlineHeart,
+  AiOutlineSend,
+} from "react-icons/ai";
 import Action from "./Action/Action";
-import { Link } from "react-router-dom";
-import { auth } from "../../../data/firebase";
+import { auth, db } from "../../../data/firebase";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import Comment from "./Action/Comment/Comment";
 
 const PostLayout = ({
   username,
@@ -15,8 +21,22 @@ const PostLayout = ({
   postlikes,
   userid,
 }) => {
-  const w = 500;
-  const h = 300;
+  const nav = useNavigate();
+
+  // const addComment = async (id) => {
+  //   try {
+  //     const postDoc = doc(db, "post", id);
+  //     await updateDoc(postDoc, {
+  //       comment: addcomment,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  const w = 500,
+    h = 300;
+
   return (
     <>
       <div key={id} className="my-5">
@@ -81,34 +101,26 @@ const PostLayout = ({
           <span className="font-light">{caption}</span>
         </div>
         {/* Comment Section */}
-        <div className="">
-          <div className="flex gap-5">
-            <div className="lowercase">
-              <span>@{username}</span>
-            </div>
-            <div className="">
-              <span>Lorem, ipsum.</span>
-            </div>
-          </div>
-        </div>
-        <div className="">
-          <div className="flex gap-5">
-            <div className="lowercase">
-              <span>@{username}</span>
-            </div>
-            <div className="">
-              <span>Lorem, ipsum.</span>
-            </div>
-          </div>
-        </div>
-        <div className="">
-          <div className="flex gap-5">
-            <div className="lowercase">
-              <span>@{username}</span>
-            </div>
-            <div className="">
-              <span>Lorem, ipsum.</span>
-            </div>
+
+        <Comment />
+
+        {/*  */}
+        <div className="flex items-center my-2 gap-2">
+          <img
+            src={auth?.currentUser?.photoURL}
+            className="rounded-full w-[40px] h-[40px]"
+          />
+
+          <input
+            type="text"
+            className="h-[40px] rounded-2xl w-full p-2"
+            //onChange={(e) => setAddComment(e.target.value)}
+          />
+          <div
+            className="h-[40px] w-[40px] grid place-content-center bg-blue-400 rounded-full "
+            //onClick={() => addComment(id)}
+          >
+            <AiOutlineSend size={20} />
           </div>
         </div>
       </div>

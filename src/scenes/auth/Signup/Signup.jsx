@@ -9,7 +9,9 @@ import {
 
 import { auth, googleProvider } from "../../../data/firebase";
 import { toast } from "react-toastify";
-
+import { eyeOff } from "react-icons-kit/feather/eyeOff";
+import { eye } from "react-icons-kit/feather/eye";
+import Icon from "react-icons-kit";
 const Signup = () => {
   const nav = useNavigate();
   const [email, setEmail] = useState("");
@@ -43,7 +45,18 @@ const Signup = () => {
       console.error(error);
     }
   };
+  const [type, setType] = useState("password");
+  const [icon, setIcon] = useState(eyeOff);
 
+  const handleToggle = () => {
+    if (type === "password") {
+      setIcon(eye);
+      setType("text");
+    } else {
+      setIcon(eyeOff);
+      setType("password");
+    }
+  };
   return (
     <>
       <div className="py-8">
@@ -122,13 +135,22 @@ const Signup = () => {
                   Forget Password?
                 </a>
               </div>
-              <input
-                className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                type="password"
-                required
-                placeholder="••••••"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="relative">
+                <input
+                  className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                  type={type}
+                  required
+                  autoComplete="current-password"
+                  placeholder="••••••"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <span
+                  className="flex justify-around items-center"
+                  onClick={handleToggle}
+                >
+                  <Icon class="absolute top-2 right-2 " icon={icon} size={25} />
+                </span>
+              </div>
             </div>
             <div className="mt-8">
               <button
