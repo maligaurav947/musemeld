@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/musemeld/static/css/main.3d8aa1c3.css",
-    "main.js": "/musemeld/static/js/main.4968a51e.js",
+    "main.css": "/musemeld/static/css/main.af2b0581.css",
+    "main.js": "/musemeld/static/js/main.272da855.js",
     "index.html": "/musemeld/index.html",
-    "main.3d8aa1c3.css.map": "/musemeld/static/css/main.3d8aa1c3.css.map",
-    "main.4968a51e.js.map": "/musemeld/static/js/main.4968a51e.js.map"
+    "main.af2b0581.css.map": "/musemeld/static/css/main.af2b0581.css.map",
+    "main.272da855.js.map": "/musemeld/static/js/main.272da855.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d8aa1c3.css",
-    "static/js/main.4968a51e.js"
+    "static/css/main.af2b0581.css",
+    "static/js/main.272da855.js"
   ]
 }
